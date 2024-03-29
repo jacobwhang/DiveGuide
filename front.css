@@ -1,0 +1,21 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+input {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.wrapper input {
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
