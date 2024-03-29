@@ -68,26 +68,39 @@
       "Zambia","Zimbabwe"
     ];
   
+
     const datalist = document.getElementById("countries");
-    countries.forEach(country => {
-      const option = document.createElement("option");
-      option.value = country;
-      datalist.appendChild(option);
-    });
-    const input = document.getElementById("destination");
-    const button = document.getElementById("button");
+const input = document.getElementById("destination");
+const countriesList = document.getElementById("countries-list");
 
-    input.addEventListener("input", function() {
-      if (countries.includes(input.value)) {
-        button.disabled = false;
-      } else {
-        button.disabled = true;
-      }
+function updateOptions(inputValue) {
+    const filteredCountries = countries.filter(country => country.toLowerCase().startsWith(inputValue.toLowerCase()));
+    datalist.innerHTML = "";
+    filteredCountries.forEach(country => {
+        const option = document.createElement("option");
+        option.value = country;
+        datalist.appendChild(option);
     });
+}
 
-    button.addEventListener("click", function() {
-      window.location.href = "back.html";
-    });
+input.addEventListener("input", function() {
+    updateOptions(input.value);
+    if (input.value) {
+        countriesList.style.display = "block";
+    } else {
+        countriesList.style.display = "none";
+    }
+});
+
+input.addEventListener("blur", function() {
+    countriesList.style.display = "none";
+});
+
+const button = document.getElementById("button");
+
+button.addEventListener("click", function() {
+    window.location.href = "back.html";
+});
   </script>
 </body>
 </html>
