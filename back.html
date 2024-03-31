@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DivePlanner</title>
+    <link rel="stylesheet" href="back.css">
 </head>
 <body>
-    
+    <div id="country"><span id="destination"></span> </div>
+    <script>
+        const destination = localStorage.getItem('destination');
+        document.getElementById('destination').textContent = destination;
+    </script>
+    <p id ="divesites">Dive Sites</p>
+    <p id ="divesites">Dive Shops</p>
+
 </body>
 </html>

@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <form class="wrapper" id="form">
     <input type="text" placeholder="Country of Dive" id="destination" list="countries" autocomplete="off" />
-    <button id="button" disabled>
+    <button id="button" type="submit" disabled>
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="2"
         stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -20,7 +20,7 @@
         <path d="M13 6l6 6"></path>
       </svg>
     </button>
-  </div>
+  </form>
   <datalist id="countries">
   </datalist>
 
@@ -71,7 +71,7 @@
 
     const datalist = document.getElementById("countries");
     const input = document.getElementById("destination");
-    const button = document.getElementById("button");
+    const form = document.getElementById("form");
 
     function updateOptions(inputValue) {
       const filteredCountries = countries.filter(country => country.toLowerCase().startsWith(inputValue.toLowerCase()));
@@ -90,13 +90,16 @@
     });
 
     input.addEventListener("blur", function () {
-      datalist.innerHTML = ""; // Clear the datalist on blur
+      datalist.innerHTML = ""; 
     });
 
-    button.addEventListener("click", function () {
-      window.location.href = "back.html";
-    });
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const inputedValue = input.value;
+        localStorage.setItem('destination',inputedValue)
+        window.location.href= "back.html";
+    })
+
   </script>
 </body>
-
 </html>
