@@ -3,3 +3,25 @@
     margin-bottom: 20px;
     font-weight: 900;
 }
+
+#divesites{
+    font-weight: 900;    
+    font-size: 20px;
+}
+
+#diveshops{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#site{
+    margin-right: 150px;
+}
+
+#location{
+    margin-right: 150px;
+}
+
+#type{
+    margin-right: 75px;
+}
